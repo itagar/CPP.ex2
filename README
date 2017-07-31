@@ -1,0 +1,56 @@
+itagar
+305392508
+Itai Tagar
+
+
+===================================
+=  README for ex2: Shape          =
+===================================
+
+
+==================
+=  Files:        =
+==================
+Defs.h
+PrintOuts.h
+PrintOuts.cpp
+Point.h
+Point.cpp
+Shape.h
+Shape.cpp
+ShapeFactory.h
+ShapeFactory.cpp
+Triangle.h
+Triangle.cpp
+Trapezoid.h
+Trapezoid.cpp
+Shapes.cpp
+Makefile
+README
+
+==================
+=  Description:  =
+==================
+The Shapes.cpp file is the Driver file which runs the program.
+
+The Shape structure is based on an Abstract Class called 'Shape' which holds the general fields
+for every Shape (e.g. vertices, area, type) and define several methods that are common to every
+Shape type (e.g. intersection with another Shape). In addition, the Abstract Class
+contains several Pure Virtual methods that is due to be implemented only by the
+specific type of Shape (e.g. area calculation).
+
+The more specific Shapes (like Triangle and Trapezoid) are declared in their own Class which
+inherits from the Abstract Shape Class.
+
+If a Driver file wants to use these Shapes, it needs to work with the ShapeFactory interface
+which defined in the ShapeFactory.h file.
+The ShapeFactory implements the 'Factory Design Pattern' and it holds the information on all of
+the current Shape types available, thus can create the requested Shape.
+The Driver runs with a Vector Container that holds pointers to Shape object. This allows us to
+use Polymorphism where each pointer in this Vector can point to a different Shape type.
+
+The main use of the Factory interface is to make the program easy to extend.
+If another Shape type is added to the program (lets say a Circle), then the Circle Class
+is implemented in it's own files and inherits from the Shape Abstract Class.
+In order for the Driver to support the Circle, the only change that we have to do is in
+the Factory file.
